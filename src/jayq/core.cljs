@@ -1,7 +1,6 @@
 (ns jayq.core
   (:refer-clojure :exclude [val empty remove find filter not])
   (:require [clojure.string :as string])
-  (:require-macros [jayq.macros :as macros])
   (:use [jayq.util :only [clj->js]]))
 
 (defn crate-meta [func]
@@ -85,8 +84,17 @@
   ([$elem txt]
     (.width $elem txt)))
 
-(macros/getter-or-setter scrollTop)
-(macros/getter-or-setter scrollLeft)
+(defn scrollTop
+  ([$elem]
+   (.scrollTop $elem))
+  ([$elem pos]
+    (.scrollTop $elem pos)))
+
+(defn scrollLeft
+  ([$elem]
+   (.scrollLeft $elem))
+  ([$elem pos]
+    (.scrollLeft $elem pos)))
 
 (defn attr [$elem a & [v]]
   (let [a (name a)]
