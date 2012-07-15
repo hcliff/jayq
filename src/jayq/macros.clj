@@ -11,3 +11,11 @@
   [& body]
   `(jayq.core/document-ready (fn []
                                ~@body)))
+
+(defmacro getter-or-setter
+	[attr]
+	`(defn ~attr
+			([$elem]
+   			(.~attr $elem))
+  		([$elem value]
+    		(.~attr $elem value))))
