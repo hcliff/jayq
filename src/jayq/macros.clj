@@ -16,6 +16,6 @@
 	[attr]
 	`(defn ~attr
 			([$elem]
-   			(.~attr $elem))
+   			(. $elem ~attr))
   		([$elem value]
-    		(.~attr $elem value))))
+    		(. $elem ~attr value))))
