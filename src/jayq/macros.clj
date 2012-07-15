@@ -13,9 +13,9 @@
                                ~@body)))
 
 (defmacro getter-or-setter
-	[attr]
-	`(defn ~attr
-			([$elem]
-   			(. $elem ~attr))
-  		([$elem value]
-    		(. $elem ~attr value))))
+  [attr]
+  `(defn ~attr
+      ([elem]
+        (. elem ~attr))
+      ([elem value]
+        (. elem ~attr value))))
